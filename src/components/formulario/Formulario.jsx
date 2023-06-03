@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import style from "./Formulario.module.css";
 
-const Formulario = () => {
+const Formulario = (props) => {
   const [nombre, setNombre] = useState("");
   const [juego, setJuego] = useState("");
   const [err, setErr] = useState("");
@@ -17,7 +17,7 @@ const Formulario = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    //expresión regular para asegurarme que no hay espacios blanco al principio
+    //Expresión regular para asegurarme que no hay espacios blanco al principio
     //obvio brindada por chatGpt
     if (!/^\S/.test(nombre) || !/^\S/.test(juego)) {
       setErr("Por favor chequea que la información sea correcta");
@@ -25,6 +25,7 @@ const Formulario = () => {
       setErr("Por favor chequea que la información sea correcta");
     } else {
       setErr("");
+      props.guardarUsuario(nombre, juego);
     }
   };
 

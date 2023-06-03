@@ -5,11 +5,21 @@ import Card from './components/card/Card'
 import Formulario from './components/formulario/Formulario'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [usuario, setUsuario] = useState({});
 
+  const guardarUsuario = (nombre, juego) => {
+    setUsuario({ nombre, juego });
+  };
+
+  //El object keys lo utilizo para ver si persona tiene algun dato setado por la funcion guardarPersona
+  // Obviamente x2, brindado por chatGpt
   return (
     <>
-      <Formulario />
+      <Formulario guardarUsuario= {guardarUsuario}/>
+
+      {Object.keys(usuario).length === 0 ? undefined : (
+        <Card nombre={usuario.nombre} juego={usuario.juego} />
+      )}
     </>
   )
 }

@@ -2,13 +2,13 @@ import React from "react"
 import style from './Card.module.css'
 
 
-const Card = () => {
+const Card = (props) => {
     return(
         <div className={style.card}>
-            <h3>Nombre:</h3>
-            <h2>Tu VideoJuego favorito:</h2>
+            <h3>Hola <span>{props.nombre}</span>!!</h3>
+            <h2>Tu VideoJuego favorito es el <span>{props.juego}</span></h2>
 
-            <p>Gran decisión Nerdie 🤓</p>
+            <p className={style.p}>Gran decisión Nerdie 🤓</p>
         </div>
     )
 }
